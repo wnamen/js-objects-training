@@ -31,3 +31,19 @@
 */
 
 // YOUR CODE HERE
+
+
+function letterCount(str) {
+  var chars = str.split("").sort();
+  var letters = {};
+
+  chars.forEach(function (ele, i) {
+    if (letters[ele] === undefined) {
+      letters[ele] = 1;
+    } else {
+      letters[ele] += 1;
+    }
+  })
+
+  return letters;
+}
