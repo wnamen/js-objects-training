@@ -39,26 +39,19 @@
 
 // YOUR CODE HERE
 
-var table = [{steps: 0}, null, null, null];
-
 function pingPong(table) {
+  var objectIndex = table.findIndex(function(el) {
+    return !!el;
+  });
+  var object = table[objectIndex];
+  if (Math.floor(object.steps/(table.length-1)) % 2 === 0) {
 
-  for (var i = 0; i < table.length; i++) {
+    table[objectIndex + 1] = object;
+  } else {
 
-    if (table[i] !== null) {
-      table[i + 1] = table[i].steps + 1;
-      table[i] = null;
-      break;
-      console.log("hi");
-    }
-
-    console.log("infinite");
+    table[objectIndex - 1] = object;
   }
-
+  object.steps += 1;
+  table[objectIndex] = null;
   return table;
 }
-
-console.log(pingPong(table));
-console.log(table);
-console.log(pingPong(table));
-console.log(pingPong(table));

@@ -48,12 +48,11 @@
 
 
 function parseQueryString(str) {
-  var newObject = {};
   var pairs = str.split("&");
 
   var arr = [];
 
-  pairs.forEach(function (ele, i) {
+  pairs.forEach(function (ele) {
     var temp = ele.split("=");
     arr.push(temp);
   })
