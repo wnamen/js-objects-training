@@ -34,3 +34,28 @@
 */
 
 // YOUR CODE HERE
+
+
+function daysUntilDate(dob) {
+  var today = new Date();
+  var bday = dob.split('/').join(" ")
+
+  var month = today.getMonth();
+  var day = today.getDate();
+  var year = today.getFullYear();
+
+  bday = bday.slice(0,bday.length-4) + "2016";
+
+  today = month + " " + day + " " + year;
+
+  console.log(today);
+  console.log(bday);
+
+  var tomm = new Date(bday);
+  console.log(tomm);
+
+  var diff = today - bday;
+  return diff;
+}
+
+daysUntilDate("05/18/1992");

@@ -38,3 +38,20 @@
 */
 
 // YOUR CODE HERE
+
+var table = [{steps: 0}, null, null, null];
+
+function pingPong(table) {
+
+  table.forEach(function (ele, i) {
+    var next = i + 1;
+    console.log(next);
+
+    if (ele !== null) {
+      next = i.ele + 1;
+      ele = null;
+    }
+  })
+
+  return table;
+}

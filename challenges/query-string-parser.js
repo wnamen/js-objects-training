@@ -45,3 +45,30 @@
 */
 
 // YOUR CODE HERE
+
+
+function parseQueryString(str) {
+  var newObject = {};
+  var pairs = str.split("&");
+
+  var arr = [];
+
+  pairs.forEach(function (ele, i) {
+    var temp = ele.split("=");
+    arr.push(temp);
+  })
+
+  var obj = {};
+
+  for (var i = 0; i < arr.length; i++) {
+    var key = arr[i][0];
+    var val = arr[i][1];
+
+    obj[key] = val;
+  }
+
+
+  return obj;
+}
+
+parseQueryString("a=apple&b=beet&b=blueberry&c=&d=10");
