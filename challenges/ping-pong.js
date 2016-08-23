@@ -43,15 +43,22 @@ var table = [{steps: 0}, null, null, null];
 
 function pingPong(table) {
 
-  table.forEach(function (ele, i) {
-    var next = i + 1;
-    console.log(next);
+  for (var i = 0; i < table.length; i++) {
 
-    if (ele !== null) {
-      next = i.ele + 1;
-      ele = null;
+    if (table[i] !== null) {
+      table[i + 1] = table[i].steps + 1;
+      table[i] = null;
+      break;
+      console.log("hi");
     }
-  })
+
+    console.log("infinite");
+  }
 
   return table;
 }
+
+console.log(pingPong(table));
+console.log(table);
+console.log(pingPong(table));
+console.log(pingPong(table));

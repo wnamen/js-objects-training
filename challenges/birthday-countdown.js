@@ -38,24 +38,45 @@
 
 function daysUntilDate(dob) {
   var today = new Date();
-  var bday = dob.split('/').join(" ")
+  var bday = new Date(dob);
+  var diff;
 
-  var month = today.getMonth();
-  var day = today.getDate();
-  var year = today.getFullYear();
+  bday.setFullYear(today.getFullYear());
 
-  bday = bday.slice(0,bday.length-4) + "2016";
+  if (today > bday) {
+    bday.setFullYear(today.getFullYear()+1);
+    diff = bday - today;
+  } else {
+    diff = bday - today;
+  }
 
-  today = month + " " + day + " " + year;
-
-  console.log(today);
-  console.log(bday);
-
-  var tomm = new Date(bday);
-  console.log(tomm);
-
-  var diff = today - bday;
-  return diff;
+  return Math.round(diff/1000/60/60/24);
 }
 
-daysUntilDate("05/18/1992");
+var people = [
+    {
+      name: "Jack",
+      dob: "10/31/2013"
+    },
+    {
+      name: "Jill",
+      dob: "4/01/1975"
+    }
+  ];
+
+function birthdayReminder(arr) {
+
+  arr.forEach(function (ele, i) {
+    console.log(ele.name + "'s birthday is in " + daysUntilDate(ele.dob) + " days");
+  })
+}
+
+birthdayReminder(people);
+
+// var month = today.getMonth();
+// var day = today.getDate();
+// var year = today.getFullYear();
+//
+// bday = (bday.slice(0,bday.length-4) + year) * 1;
+//
+// today = (month + " " + day + " " + year) * 1;
